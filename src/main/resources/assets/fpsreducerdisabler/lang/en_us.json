@@ -1,0 +1,4 @@
+{
+  "options.inactivityFpsLimit.never": "Never",
+  "options.inactivityFpsLimit.never.tooltip": "Never reduce FPS."
+}

@@ -1,0 +1,7 @@
+classTweaker v2 official
+
+# Make CODEC and $VALUES mutable and public
+accessible field net/minecraft/client/InactivityFpsLimit CODEC Lcom/mojang/serialization/Codec;
+mutable field net/minecraft/client/InactivityFpsLimit CODEC Lcom/mojang/serialization/Codec;
+accessible field net/minecraft/client/InactivityFpsLimit $VALUES [Lnet/minecraft/client/InactivityFpsLimit;
+mutable field net/minecraft/client/InactivityFpsLimit $VALUES [Lnet/minecraft/client/InactivityFpsLimit;

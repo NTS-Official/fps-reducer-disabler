@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "fpsreducerdisabler",
+	"version": "${version}",
+	"name": "Why not Keep Your FPS up?",
+	"description": "Add an option to disable the FPS reducer from vanilla's video options.",
+	"authors": [
+		"NoTuring_Steve"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"license": "MIT",
+	"icon": "assets/fpsreducerdisabler/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "com.nts.fpsreducerdisabler.WhyNotKeepYourFPSUp",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"fpsreducerdisabler.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	}
+}
