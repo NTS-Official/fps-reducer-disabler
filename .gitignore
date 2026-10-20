@@ -1,5 +1,6 @@
 # gradle
 
+.kotlin
 .gradle/
 build/
 out/
@@ -11,6 +12,8 @@ classes/
 
 # idea
 
+.gemini
+.agents
 .idea/
 *.iml
 *.ipr
