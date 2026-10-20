@@ -8,8 +8,8 @@
 		"NoTuring_Steve"
 	],
 	"contact": {
-		"homepage": "",
-		"sources": ""
+		"homepage": "https://nts-official.github.io/projects/fps-reducer-disabler",
+		"sources": "https://github.com/NTS-Official/fps-reducer-disabler"
 	},
 	"license": "MIT",
 	"icon": "assets/fpsreducerdisabler/icon.png",

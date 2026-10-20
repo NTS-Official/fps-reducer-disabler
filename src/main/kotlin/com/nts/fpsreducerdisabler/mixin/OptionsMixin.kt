@@ -1,6 +1,5 @@
 package com.nts.fpsreducerdisabler.mixin
 
-import com.nts.fpsreducerdisabler.Utils
 import net.minecraft.client.InactivityFpsLimit
 import net.minecraft.client.OptionInstance
 import net.minecraft.client.Options
@@ -29,7 +28,7 @@ abstract class OptionsMixin {
         val currentValues = InactivityFpsLimit.entries.toTypedArray()
         val neverInstance = constructorHandle.invoke("NEVER", currentValues.size, "never", "options.inactivityFpsLimit.never") as InactivityFpsLimit
 
-        Utils.NEVER = neverInstance
+        MixinUtils.NEVER = neverInstance
         val newValues = currentValues + neverInstance
         val valuesHandle = lookup.findStaticVarHandle(InactivityFpsLimit::class.java, "\$VALUES", Array<InactivityFpsLimit>::class.java)
         valuesHandle.set(newValues)
@@ -44,7 +43,7 @@ abstract class OptionsMixin {
         tooltipField.isAccessible = true
         @Suppress("UNCHECKED_CAST") val originalSupplier = tooltipField.get(option) as OptionInstance.TooltipSupplier<InactivityFpsLimit>
         val wrappedSupplier = OptionInstance.TooltipSupplier<InactivityFpsLimit> { value ->
-            if (value === Utils.NEVER) Tooltip.create(Component.translatable("options.inactivityFpsLimit.never.tooltip"))
+            if (value === MixinUtils.NEVER) Tooltip.create(Component.translatable("options.inactivityFpsLimit.never.tooltip"))
             else originalSupplier.apply(value)
         }
         tooltipField.set(option, wrappedSupplier)
