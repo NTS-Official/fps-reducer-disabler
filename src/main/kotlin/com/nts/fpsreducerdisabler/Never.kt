@@ -1,7 +1,7 @@
-package com.nts.fpsreducerdisabler.mixin
+package com.nts.fpsreducerdisabler
 
 import net.minecraft.client.InactivityFpsLimit
 
-object MixinUtils {
+object Never {
     lateinit var NEVER: InactivityFpsLimit
 }
