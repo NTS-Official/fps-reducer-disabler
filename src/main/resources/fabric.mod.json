@@ -27,7 +27,11 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.19.5",
+<<<<<<< Updated upstream
 		"minecraft": "~26.2",
+=======
+		"minecraft": "~26.4-alpha.5",
+>>>>>>> Stashed changes
 		"java": ">=25",
 		"fabric-api": "*",
 		"fabric-language-kotlin": "*"
