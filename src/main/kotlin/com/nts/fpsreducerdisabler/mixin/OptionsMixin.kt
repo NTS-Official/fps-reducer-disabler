@@ -24,6 +24,9 @@ abstract class OptionsMixin {
 
     @Inject(method = ["<init>"], at = [At(value = "INVOKE", target = "Ljava/lang/Object;<init>()V", shift = At.Shift.AFTER)])
     private fun injectNeverEnum(ci: CallbackInfo) {
+        if (`fpsreducerdisabler$initialized`) return
+        `fpsreducerdisabler$initialized` = true
+
         val lookup = MethodHandles.privateLookupIn(InactivityFpsLimit::class.java, MethodHandles.lookup())
         val constructorHandle = lookup.findConstructor(InactivityFpsLimit::class.java, MethodType.methodType(Void.TYPE, String::class.java, Int::class.javaPrimitiveType, String::class.java, String::class.java))
         val currentValues = InactivityFpsLimit.entries.toTypedArray()
@@ -31,7 +34,7 @@ abstract class OptionsMixin {
 
         Never.NEVER = neverInstance
         val newValues = currentValues + neverInstance
-        val valuesHandle = lookup.findStaticVarHandle(InactivityFpsLimit::class.java, "\$VALUES", Array<InactivityFpsLimit>::class.java)
+        val valuesHandle = lookup.findStaticVarHandle(InactivityFpsLimit::class.java, $$"$VALUES", Array<InactivityFpsLimit>::class.java)
         valuesHandle.set(newValues)
 
         InactivityFpsLimit.CODEC = StringRepresentable.fromEnum { newValues }
