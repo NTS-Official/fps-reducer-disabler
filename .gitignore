@@ -12,8 +12,6 @@ classes/
 
 # idea
 
-.gemini
-.agents
 .idea/
 *.iml
 *.ipr
